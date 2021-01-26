@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema 
+	xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://lucas.com" 
+	xmlns:tns="http://lucas.com"
+	elementFormDefault="qualified">
+
+	<element name="GetCustomerDetailRequest">
+		<complexType>
+			<sequence>
+				<element name="id" type="integer">
+				</element>
+			</sequence>
+		</complexType>
+	</element>
+
+</schema>

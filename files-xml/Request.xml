@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GetCustumerDetailRequest xmlns="http://lucas.com">
+<GetCustomerDetailRequest 
+	xmlns="http://lucas.com" 
+	xsi:schemaLocation="http://lucas.com customer-information.xsd"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<id>123</id>
-</GetCustumerDetailRequest>
+</GetCustomerDetailRequest>
