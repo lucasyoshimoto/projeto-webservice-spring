@@ -2,12 +2,14 @@
 // Este arquivo foi gerado pela Arquitetura JavaTM para Implementação de Referência (JAXB) de Bind XML, v2.2.7 
 // Consulte <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Todas as modificações neste arquivo serão perdidas após a recompilação do esquema de origem. 
-// Gerado em: 2021.01.26 às 04:31:26 PM BRT 
+// Gerado em: 2021.01.27 às 11:38:15 AM BRT 
 //
 
 
 package com.lucas;
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -25,7 +27,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="CustomerDetail" type="{http://lucas.com}CustomerDetail"/>
+ *         &lt;element name="CustomerDetail" type="{http://lucas.com}CustomerDetail" maxOccurs="unbounded"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -38,34 +40,39 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "", propOrder = {
     "customerDetail"
 })
-@XmlRootElement(name = "GetAllCustomerResponse")
-public class GetAllCustomerResponse {
+@XmlRootElement(name = "GetAllCustomerDetailResponse")
+public class GetAllCustomerDetailResponse {
 
     @XmlElement(name = "CustomerDetail", required = true)
-    protected CustomerDetail customerDetail;
+    protected List<CustomerDetail> customerDetail;
 
     /**
-     * Obtém o valor da propriedade customerDetail.
+     * Gets the value of the customerDetail property.
      * 
-     * @return
-     *     possible object is
-     *     {@link CustomerDetail }
-     *     
-     */
-    public CustomerDetail getCustomerDetail() {
-        return customerDetail;
-    }
-
-    /**
-     * Define o valor da propriedade customerDetail.
+     * <p>
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the customerDetail property.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link CustomerDetail }
-     *     
+     * <p>
+     * For example, to add a new item, do as follows:
+     * <pre>
+     *    getCustomerDetail().add(newItem);
+     * </pre>
+     * 
+     * 
+     * <p>
+     * Objects of the following type(s) are allowed in the list
+     * {@link CustomerDetail }
+     * 
+     * 
      */
-    public void setCustomerDetail(CustomerDetail value) {
-        this.customerDetail = value;
+    public List<CustomerDetail> getCustomerDetail() {
+        if (customerDetail == null) {
+            customerDetail = new ArrayList<CustomerDetail>();
+        }
+        return this.customerDetail;
     }
 
 }

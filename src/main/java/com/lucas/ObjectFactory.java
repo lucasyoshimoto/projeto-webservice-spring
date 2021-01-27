@@ -2,7 +2,7 @@
 // Este arquivo foi gerado pela Arquitetura JavaTM para Implementação de Referência (JAXB) de Bind XML, v2.2.7 
 // Consulte <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Todas as modificações neste arquivo serão perdidas após a recompilação do esquema de origem. 
-// Gerado em: 2021.01.26 às 04:31:26 PM BRT 
+// Gerado em: 2021.01.27 às 11:38:15 AM BRT 
 //
 
 
@@ -37,6 +37,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link GetAllCustomerDetailRequest }
+     * 
+     */
+    public GetAllCustomerDetailRequest createGetAllCustomerDetailRequest() {
+        return new GetAllCustomerDetailRequest();
+    }
+
+    /**
      * Create an instance of {@link GetCustomerDetailResponse }
      * 
      */
@@ -53,11 +61,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link GetAllCustomerResponse }
+     * Create an instance of {@link GetAllCustomerDetailResponse }
      * 
      */
-    public GetAllCustomerResponse createGetAllCustomerResponse() {
-        return new GetAllCustomerResponse();
+    public GetAllCustomerDetailResponse createGetAllCustomerDetailResponse() {
+        return new GetAllCustomerDetailResponse();
     }
 
     /**
