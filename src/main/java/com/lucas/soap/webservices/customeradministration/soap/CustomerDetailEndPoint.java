@@ -9,6 +9,8 @@ import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 
 import com.lucas.CustomerDetail;
+import com.lucas.DeleteCustomerRequest;
+import com.lucas.DeleteCustomerResponse;
 import com.lucas.GetAllCustomerDetailRequest;
 import com.lucas.GetAllCustomerDetailResponse;
 import com.lucas.GetCustomerDetailRequest;
@@ -58,6 +60,21 @@ public class CustomerDetailEndPoint {
 		GetAllCustomerDetailResponse resp = new GetAllCustomerDetailResponse();
 		customers.stream().forEach(c -> resp.getCustomerDetail().add(convertToCustomerDetail(c)));
 		return resp;
+	}
+	
+	@PayloadRoot(namespace="http://lucas.com", localPart="DeleteCustomerRequest")
+	@ResponsePayload
+	public DeleteCustomerResponse deleteCustomerRequest(@RequestPayload DeleteCustomerRequest req) {
+		DeleteCustomerResponse resp = new DeleteCustomerResponse();
+		resp.setStatus(convertStatusSoap(service.deleteById(req.getId())));
+		return resp;
+	}
+	
+	private com.lucas.Status convertStatusSoap(com.lucas.soap.webservices.customeradministration.helper.Status statusService) {
+		if(statusService == com.lucas.soap.webservices.customeradministration.helper.Status.FAILURE) {
+			return com.lucas.Status.FAILURE;
+		}
+		return com.lucas.Status.SUCCESS;
 	}
 	
 }
