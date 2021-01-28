@@ -17,6 +17,7 @@ import com.lucas.GetCustomerDetailRequest;
 import com.lucas.GetCustomerDetailResponse;
 import com.lucas.soap.webservices.customeradministration.bean.Customer;
 import com.lucas.soap.webservices.customeradministration.service.CustomerDetailService;
+import com.lucas.soap.webservices.customeradministration.soap.exception.CustomerNotFoundException;
 
 @Endpoint
 public class CustomerDetailEndPoint {
@@ -29,7 +30,7 @@ public class CustomerDetailEndPoint {
 	public GetCustomerDetailResponse processCustomerDetailRequest(@RequestPayload GetCustomerDetailRequest req) throws Exception {
 		Customer customer = service.findById(req.getId());
 		if(customer == null) {
-			throw new Exception("Invalid Customer id"+req.getId());
+			throw new CustomerNotFoundException("Invalid Customer id "+req.getId());
 		}
 		return convertToCustomerDetailResponse(customer);
 	}
