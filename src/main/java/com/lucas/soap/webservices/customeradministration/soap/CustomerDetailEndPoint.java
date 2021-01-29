@@ -15,6 +15,8 @@ import com.lucas.GetAllCustomerDetailRequest;
 import com.lucas.GetAllCustomerDetailResponse;
 import com.lucas.GetCustomerDetailRequest;
 import com.lucas.GetCustomerDetailResponse;
+import com.lucas.InsertCustomerRequest;
+import com.lucas.InsertCustomerResponse;
 import com.lucas.soap.webservices.customeradministration.bean.Customer;
 import com.lucas.soap.webservices.customeradministration.service.CustomerDetailService;
 import com.lucas.soap.webservices.customeradministration.soap.exception.CustomerNotFoundException;
@@ -76,6 +78,18 @@ public class CustomerDetailEndPoint {
 			return com.lucas.Status.FAILURE;
 		}
 		return com.lucas.Status.SUCCESS;
+	}
+	
+	@PayloadRoot(namespace="http://lucas.com", localPart="InsertCustomerRequest")
+	@ResponsePayload
+	public InsertCustomerResponse insertCustomerRequest(@RequestPayload InsertCustomerRequest req) {
+		InsertCustomerResponse resp = new InsertCustomerResponse();
+		resp.setStatus(convertStatusSoap(service.insert(convertCustomer(req.getCustomerDetail()))));
+		return resp;
+	}
+	
+	private Customer convertCustomer(CustomerDetail customerDetail) {
+		return new Customer(customerDetail.getId(),customerDetail.getName(),customerDetail.getPhone(),customerDetail.getEmail());
 	}
 	
 }

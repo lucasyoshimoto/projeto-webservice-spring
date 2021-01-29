@@ -3,6 +3,23 @@
 	targetNamespace="http://lucas.com" xmlns:tns="http://lucas.com"
 	elementFormDefault="qualified">
 
+	<xs:element name="InsertCustomerRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="CustomerDetail"
+					type="tns:CustomerDetail" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="InsertCustomerResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="status" type="tns:Status" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
 	<xs:element name="GetCustomerDetailRequest">
 		<xs:complexType>
 			<xs:sequence>
